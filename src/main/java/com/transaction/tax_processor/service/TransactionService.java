@@ -3,7 +3,6 @@ package com.transaction.tax_processor.service;
 import org.springframework.stereotype.Service;
 
 import com.transaction.processor.dto.TransactionAmountDTO;
-import com.transaction.processor.dto.TransactionDTO;
 import com.transaction.processor.dto.TransactionDetailDTO;
 import com.transaction.processor.dto.TransactionTotalDetailDTO;
 import com.transaction.tax_processor.entity.Transaction;
@@ -27,7 +26,7 @@ public class TransactionService {
 		trx.setTransactionId(trxDto.getTransactionId());
 
 		TransactionAmountDTO trxAmmount = trxDto.getTransactionAmount();
-		TransactionTotalDetailDTO trxDetail = trxAmmount.getDetail();
+		TransactionTotalDetailDTO trxDetail = trxAmmount.getDetails();
 
 		trx.setCurrency(trxAmmount.getCurrency());
 		trx.setTotal(trxAmmount.getTotal());
