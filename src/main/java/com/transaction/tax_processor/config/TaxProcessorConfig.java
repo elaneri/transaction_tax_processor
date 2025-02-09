@@ -1,4 +1,4 @@
-package com.transaction.processor.config;
+package com.transaction.tax_processor.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +19,7 @@ import org.springframework.util.ClassUtils;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.TypeFactory;
-import com.transaction.processor.dto.TransactionDto;
+import com.transaction.processor.dto.TransactionDTO;
 
 @Configuration
 @EnableKafka
@@ -46,7 +46,7 @@ public class TaxProcessorConfig {
 
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, ?> kafkaListenerContainerFactory() {
-		return initFactory(TransactionDto.class);
+		return initFactory(TransactionDTO.class);
 	}
 
 	private static class CustomTypeMapper<T> extends DefaultJackson2JavaTypeMapper {
