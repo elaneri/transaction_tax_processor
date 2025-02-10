@@ -20,8 +20,10 @@ public class ConsumerService {
 	}
 
 	@KafkaHandler
-	public void handleInMessageImplEvent(@Payload TransactionDetailDTO event) {
+	public void handleInMessageImplEvent(@Payload TransactionDetailDTO event) throws Exception {
+
 		transactionService.save(event);
+
 		logger.info(String.format("Received: " + event));
 	}
 }

@@ -16,6 +16,10 @@ public class Transaction {
 
 	private String description;
 
+	@Column(nullable = false)
+	private String batchTransactionId;
+	
+
 	@Column(nullable = false, unique = true)
 	private String transactionId;
 
@@ -107,4 +111,12 @@ public class Transaction {
 	public void setBasedTax(BigDecimal basedTax) {
 		this.basedTax = basedTax;
 	}
+	public String getBatchTransactionId() {
+		return batchTransactionId;
+	}
+
+	public void setBatchTransactionId(String batchTransactionId) {
+		this.batchTransactionId = batchTransactionId;
+	}
+
 }
