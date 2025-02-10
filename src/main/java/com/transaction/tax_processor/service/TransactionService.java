@@ -12,8 +12,6 @@ import com.transaction.tax_processor.entity.TransactionTax;
 import com.transaction.tax_processor.repository.TransactionRepository;
 import com.transaction.tax_processor.repository.TransactionTaxRepository;
 
-import jakarta.transaction.Transactional;
-
 @Service
 public class TransactionService {
 	private TransactionRepository transactionRepository;
@@ -25,8 +23,7 @@ public class TransactionService {
 		this.transactionTaxRepository = transactionTaxRepository;
 
 	}
-
-	public void save(TransactionDetailDTO trxDto) throws Exception {
+	public void save(TransactionDetailDTO trxDto)  {
 
 		Transaction trx = new Transaction();
 		trx.setDescription(trxDto.getDescription());
