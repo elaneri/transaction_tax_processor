@@ -23,7 +23,8 @@ public class TransactionService {
 		this.transactionTaxRepository = transactionTaxRepository;
 
 	}
-	public void save(TransactionDetailDTO trxDto)  {
+
+	public void save(TransactionDetailDTO trxDto) {
 
 		Transaction trx = new Transaction();
 		trx.setDescription(trxDto.getDescription());

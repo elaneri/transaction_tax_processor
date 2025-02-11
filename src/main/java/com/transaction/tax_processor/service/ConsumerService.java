@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.transaction.processor.dto.TransactionDetailDTO;
 
 @Component
-@KafkaListener(topics = "new-transactions", groupId = "processor", containerFactory = "kafkaListenerContainerFactory")
+@KafkaListener(topics = "${kafka.topic}", groupId = "processor", containerFactory = "kafkaListenerContainerFactory")
 public class ConsumerService {
 	private TransactionService transactionService;
 
@@ -17,9 +17,7 @@ public class ConsumerService {
 	}
 
 	@KafkaHandler
-	public void handleInMessageImplEvent(@Payload TransactionDetailDTO event)  {
-
+	public void handleInMessageImplEvent(@Payload TransactionDetailDTO event) {
 		transactionService.save(event);
-
 	}
 }
